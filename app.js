@@ -1,16 +1,10 @@
-var app = require('./config/server')
+var app = require('./config/server');
 
-app.get('/', function(req, res){
-    res.render("home/index"); //here I can hide the file extension, because ejs can understand it
-});
+var rotaNoticias = require('./app/routes/noticias')(app);
 
-app.get('/formulario_inclusao_noticia', function(req, res){
-    res.render("admin/form_add_noticia");
-});
+var rotaHome = require('./app/routes/home')(app);
 
-app.get('/noticias', function(req, res){
-    res.render("noticias/noticias");
-});
+var rotaFormularioInclusaoNoticia = require('./app/routes/formulario_inclusao_noticia')(app);
 
 app.listen(3000, function(){
     console.log("Servidor ON");
