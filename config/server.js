@@ -6,9 +6,10 @@ app.set('view engine', 'ejs'); //here we say that ejs will take care of our view
 app.set('views', './app/views'); //here we say "where are the views"
 
 
-consign()               //scan routes folder and include these routes to our server (app)
-    .include('app/routes')
+consign()               
+    .include('app/routes') //scan routes folder and include these routes to our server (app)
     .then('config/dbConnection.js') //in this case, .js extension indicates that dbConnection is the module to be used inside config dir
+    .then('app/models')
     .into(app); 
 
 module.exports = app;
