@@ -14,6 +14,7 @@ consign()
     .include('app/routes') //scan routes folder and include these routes to our server (app)
     .then('config/dbConnection.js') //in this case, .js extension indicates that dbConnection is the module to be used inside config dir
     .then('app/models')
+    .then('app/controllers')
     .into(app); 
 
 module.exports = app;
