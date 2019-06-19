@@ -9,6 +9,7 @@ app.set('views', './app/views'); //here we say "where are the views"
 
 app.use(bodyParser.urlencoded({extended: true})) //the body-parser is a middleware
 app.use(expressValidator());
+app.use(express.static('./app/public')); //static acts as a middleware to identify assets
 
 consign()               
     .include('app/routes') //scan routes folder and include these routes to our server (app)
