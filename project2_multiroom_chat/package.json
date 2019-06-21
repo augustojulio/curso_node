@@ -1,0 +1,26 @@
+{
+  "name": "project2_multiroom_chat",
+  "version": "1.0.0",
+  "description": "multiroom chat with socketio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augustojulio/curso_node.git"
+  },
+  "author": "Augusto de Paula Júlio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/augustojulio/curso_node/issues"
+  },
+  "homepage": "https://github.com/augustojulio/curso_node#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.0.0"
+  }
+}
