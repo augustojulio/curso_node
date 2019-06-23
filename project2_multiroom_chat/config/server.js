@@ -21,10 +21,11 @@ app.set('views', './app/views');
 app.use(express.static('./app/public'));
 
 /* configure the body-parser middleware */
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({extended: true}))
 
 /* configure the express-validator middleware */
-//app.use(expressValidator());
+app.use(expressValidator());
+
 
 /* performs the autoload of routes, models and controllers to the app object */
 consign()
