@@ -11,6 +11,5 @@ module.exports.iniciaChat = function(application, req, res){
         return;
     }
 
-    //res.render('chat');
-    res.render('index', {validacao: {}});
+    res.render('chat');
 }

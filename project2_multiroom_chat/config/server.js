@@ -17,15 +17,14 @@ var app = express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
-/* configure the express.static middleware */
-app.use(express.static('./app/public'));
-
 /* configure the body-parser middleware */
 app.use(bodyParser.urlencoded({extended: true}))
 
 /* configure the express-validator middleware */
 app.use(expressValidator());
 
+/* configure the express.static middleware */
+app.use(express.static('./app/public'));
 
 /* performs the autoload of routes, models and controllers to the app object */
 consign()
