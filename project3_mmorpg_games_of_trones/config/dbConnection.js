@@ -2,7 +2,6 @@
 var mongo = require("mongodb");
 
 var connMongoDB = function(){
-	console.log('entrou func conexao');
 	var db = mongo.Db(
 		'got',
 		new mongo.Server(
