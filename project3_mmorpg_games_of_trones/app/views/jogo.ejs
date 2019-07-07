@@ -52,7 +52,7 @@
 					var segundos = $(this).html();
 					var segundos_atuais = parseInt(segundos) - 1;
 
-					S(this).html(segundos_atuais);
+					$(this).html(segundos_atuais);
 				});
 				timerId = setTimeout('cronometro()', 1000);
 			}			
