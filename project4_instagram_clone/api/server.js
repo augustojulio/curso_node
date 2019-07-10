@@ -26,6 +26,7 @@ app.get('/', function(req, res){
 
 });
 
+//POST (create documents)
 app.post('/api', function(req, res){
 
 	var dados = req.body;
@@ -37,6 +38,25 @@ app.post('/api', function(req, res){
 					res.json({'status' : 'erro'});
 				} else {
 					res.json({'status' : 'inclusao realizada com sucesso'});
+				}
+				mongoclient.close();
+			});
+		});
+
+	});
+});
+
+
+//GET (read documents)
+app.get('/api', function(req, res){
+
+	db.open(function(err, mongoclient){
+		mongoclient.collection('postagens', function(err, collection){
+			collection.find().toArray(function(err, results){
+				if(err){
+					res.json(err);
+				} else {
+					res.json(results);
 				}
 				mongoclient.close();
 			});
