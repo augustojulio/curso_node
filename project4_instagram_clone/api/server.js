@@ -12,4 +12,10 @@ var port = 8080;
 
 app.listen(port);
 
-console.log('HTTP server is listenning port' + port);
+console.log('HTTP server is listening port' + port);
+
+app.get('/', function(req, res){
+	
+	res.send({ msg: 'olá'});
+
+});
