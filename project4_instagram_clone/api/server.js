@@ -108,3 +108,22 @@ app.put('/api/:id', function(req, res){
 
 	});
 });
+
+//DELETE (remove documents by ID)
+app.delete('/api/:id', function(req, res){
+
+	db.open(function(err, mongoclient){
+		mongoclient.collection('postagens', function(err, collection){
+			collection.remove({ _id : objectId(req.params.id)}, function(err, records){
+				if(err){
+					res.json(err);
+				} else {
+					res.json(records);
+				}
+				mongoclient.close();
+			});
+			
+		});
+
+	});
+});
