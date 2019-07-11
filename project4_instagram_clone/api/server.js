@@ -2,7 +2,8 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	multiparty = require('connect-multiparty'),
 	mongodb = require('mongodb'),
-	objectId = require('mongodb').ObjectId;
+	objectId = require('mongodb').ObjectId,
+	fs = require('fs');
 
 var app = express();
 
@@ -38,6 +39,16 @@ app.post('/api', function(req, res){
 
 	res.send(dados);
 
+	var path_origem = req.files.arquivo.path;
+	var path_destino = './uploads/' + req.files.arquivo.path.originalFilename;
+
+	fs.rename(path_origem, path_destino, function(err){
+		if(err){
+			res.status(500).json({ error: err});
+			return;
+		}
+
+
 	// db.open(function(err, mongoclient){
 	// 	mongoclient.collection('postagens', function(err, collection){
 	// 		collection.insert(dados, function(err, records){
@@ -51,6 +62,9 @@ app.post('/api', function(req, res){
 	// 	});
 
 	// });
+	
+	});
+
 });
 
 
